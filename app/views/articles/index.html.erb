@@ -1,0 +1,10 @@
+<h1>Open Blog - Powered by Ruby on Rails</h1>
+<h3>Read. Edit. Delete. You have the power to do it all, anytime.</h3><br>
+<h2>Article Archive</h2>
+<% @articles.each do |article| %>
+  <li>
+    <%= link_to article.title, article %>
+  </li><br>
+<% end %>
+
+<br><br><%= link_to "New Article", new_article_path %>

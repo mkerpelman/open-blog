@@ -1,0 +1,8 @@
+<h1><%= @article.title %></h1>
+<p><strong>Created at:</strong> <%= @article.created_at %></p>
+<%= link_to "Edit Article", edit_article_path %>
+<%= link_to "Delete Article", article_path, method: :delete, data: { confirm: "Are you sure you wish to delete this article?"} %>
+<p><%= @article.body %></p>
+
+
+<br><br><%= link_to "Back to Article Archive", root_path %>
