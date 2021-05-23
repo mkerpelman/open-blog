@@ -3,6 +3,27 @@
 <%= link_to "Edit Article", edit_article_path %>
 <%= link_to "Delete Article", article_path, method: :delete, data: { confirm: "Are you sure you wish to delete this article?"} %>
 <p><%= @article.body %></p>
+<br><%= link_to "Back to Article Archive", root_path %>
+
+<h2>Add a Comment</h2>
+<%= form_with model: [@article, @article.comments.build] do |form| %>
+  <div>
+    <%= form.label "Name:" %>
+    <%= form.text_field :commenter %>
+  </div>
+  <div>
+    <%= form.label "Comment:" %><br>
+    <%= form.text_area :body %>
+  </div>
+  <%= form.submit %>
+<% end %>
+
+<h2>Comments</h2>
+<% @article.comments.each do |comment| %>
+  <strong>Commenter:</strong>
+  <%= comment.commenter %><br>
+  <strong>Comment:</strong>
+  <%= comment.body %><br><br>
+<% end %>
 
 
-<br><br><%= link_to "Back to Article Archive", root_path %>
